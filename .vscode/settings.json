@@ -1,0 +1,4 @@
+{
+    "biome.lspBin": "./node_modules/@biomejs/biome/bin/biome",
+    "editor.defaultFormatter": "biomejs.biome",
+}
