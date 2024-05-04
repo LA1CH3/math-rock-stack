@@ -2,11 +2,14 @@
 	"name": "@la1ch3/math-rock-stack",
 	"version": "1.0.0",
 	"description": "",
+	"sideEffects": false,
+	"type": "module",
 	"main": "index.js",
 	"scripts": {
 		"dev": "remix vite:dev --open",
 		"build": "remix vite:build",
-		"start": "remix serve build/server/index.js"
+		"start": "remix-serve build/server/index.js",
+		"check": "biome check app"
 	},
 	"keywords": [],
 	"author": "",
