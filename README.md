@@ -1,3 +1,8 @@
+## Steps
+
+- Create cloudflare account
+- Create API token, store in secrets
+
 ## Todo
 
 - Connect database (D1?)

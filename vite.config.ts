@@ -1,6 +1,9 @@
-import { vitePlugin as remix } from "@remix-run/dev";
+import {
+	vitePlugin as remix,
+	cloudflareDevProxyVitePlugin as remixCloudflareDevProxy,
+} from "@remix-run/dev";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-	plugins: [remix()],
+	plugins: [remixCloudflareDevProxy(), remix()],
 });
