@@ -15,6 +15,8 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"@remix-run/cloudflare": "^2.9.1",
+		"@remix-run/cloudflare-pages": "^2.9.1",
 		"@remix-run/node": "^2.9.1",
 		"@remix-run/react": "^2.9.1",
 		"@remix-run/serve": "^2.9.1",
@@ -28,6 +30,7 @@
 		"@tsconfig/remix": "^2.0.5",
 		"@types/react": "^18.3.1",
 		"typescript": "^5.4.5",
-		"vite": "^5.2.11"
+		"vite": "^5.2.11",
+		"wrangler": "^3.53.1"
 	}
 }
