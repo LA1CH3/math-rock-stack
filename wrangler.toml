@@ -1,0 +1,12 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "math-rock-stack"
+compatibility_date = "2024-05-02"
+pages_build_output_dir = "./build/client"
+
+[placement]
+mode = "smart"
+
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "math-rock-stack"
+database_id = "1ffde7f0-41f1-4b6d-8621-d33748d0aa58"

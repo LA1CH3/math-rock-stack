@@ -9,7 +9,8 @@
 		"dev": "remix vite:dev --open",
 		"build": "remix vite:build",
 		"start": "remix-serve build/server/index.js",
-		"check": "biome check app"
+		"check": "biome check app",
+		"cf-typegen": "wrangler types"
 	},
 	"keywords": [],
 	"author": "",
