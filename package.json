@@ -6,8 +6,9 @@
   "type": "module",
   "main": "build/client/index.js",
   "scripts": {
-    "dev": "wrangler pages dev ./build/client",
+    "dev": "remix vite:dev --open",
     "build": "remix vite:build",
+    "start": "wrangler pages dev ./build/client",
     "check": "biome check app",
     "cf-typegen": "wrangler types",
     "db:migrate:create": "drizzle-kit generate:sqlite",
