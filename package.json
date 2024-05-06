@@ -1,44 +1,44 @@
 {
-	"name": "@la1ch3/math-rock-stack",
-	"version": "1.0.0",
-	"description": "",
-	"sideEffects": false,
-	"type": "module",
-	"main": "build/client/index.js",
-	"scripts": {
-		"dev": "wrangler pages dev ./build/client",
-		"build": "remix vite:build",
-		"check": "biome check app",
-		"cf-typegen": "wrangler types",
-		"db:migrate:create": "drizzle-kit generate:sqlite",
-		"db:migrate:apply": "dotenvx run -- sh scripts/db-migrate.sh",
-		"db:studio:local": "LOCAL_DB_PATH=$(find .wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) drizzle-kit studio",
-		"db:sync": "dotenvx run -- sh scripts/db-sync.sh",
-		"wrangler": "wrangler"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"dependencies": {
-		"@remix-run/cloudflare": "^2.9.1",
-		"@remix-run/cloudflare-pages": "^2.9.1",
-		"@remix-run/node": "^2.9.1",
-		"@remix-run/react": "^2.9.1",
-		"drizzle-orm": "^0.30.10",
-		"isbot": "4",
-		"react": "^18.3.1",
-		"react-dom": "^18.3.1"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "1.7.2",
-		"@dotenvx/dotenvx": "^0.37.1",
-		"@remix-run/dev": "^2.9.1",
-		"@tsconfig/remix": "^2.0.5",
-		"@types/react": "^18.3.1",
-		"better-sqlite3": "^9.6.0",
-		"drizzle-kit": "^0.20.17",
-		"typescript": "^5.4.5",
-		"vite": "^5.2.11",
-		"wrangler": "^3.53.1"
-	}
+  "name": "@la1ch3/math-rock-stack",
+  "version": "1.0.0",
+  "description": "",
+  "sideEffects": false,
+  "type": "module",
+  "main": "build/client/index.js",
+  "scripts": {
+    "dev": "wrangler pages dev ./build/client",
+    "build": "remix vite:build",
+    "check": "biome check app",
+    "cf-typegen": "wrangler types",
+    "db:migrate:create": "drizzle-kit generate:sqlite",
+    "db:migrate:apply": "dotenvx run -- sh scripts/db-migrate.sh",
+    "db:studio:local": "LOCAL_DB_PATH=$(find .wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) drizzle-kit studio",
+    "db:sync": "dotenvx run -- sh scripts/db-sync.sh",
+    "wrangler": "wrangler"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@remix-run/cloudflare": "^2.9.1",
+    "@remix-run/cloudflare-pages": "^2.9.1",
+    "@remix-run/node": "^2.9.1",
+    "@remix-run/react": "^2.9.1",
+    "drizzle-orm": "^0.30.10",
+    "isbot": "4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.7.2",
+    "@dotenvx/dotenvx": "^0.37.1",
+    "@remix-run/dev": "^2.9.1",
+    "@tsconfig/remix": "^2.0.5",
+    "@types/react": "^18.3.1",
+    "better-sqlite3": "^9.6.0",
+    "drizzle-kit": "^0.20.17",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11",
+    "wrangler": "^3.53.1"
+  }
 }
