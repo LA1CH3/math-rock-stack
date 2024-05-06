@@ -13,3 +13,4 @@ mode = "smart"
 binding = "DB" # i.e. available in your Worker on env.DB
 database_name = "math-rock-stack"
 database_id = "1ffde7f0-41f1-4b6d-8621-d33748d0aa58"
+preview_database_id = "DB"

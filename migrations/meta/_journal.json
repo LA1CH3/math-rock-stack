@@ -1,0 +1,20 @@
+{
+  "version": "5",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1714958879476,
+      "tag": "0000_calm_mauler",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1714962546142,
+      "tag": "0001_optimal_randall_flagg",
+      "breakpoints": true
+    }
+  ]
+}
