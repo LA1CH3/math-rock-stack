@@ -22,6 +22,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <h2>This is a test</h2>
         <ul>
           {books.map((book) => (
             <li key={book.id}>
