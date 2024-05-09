@@ -1,13 +1,15 @@
 ## Steps
 
 - Create cloudflare account
-- Create API token, store in secrets
+- Create API token
+- Store token in Github actions secret
 
 ## Todo
 
 - Github action for preview environments on PR
-- Github action for running check on PR
 - Tests with Vitest?
+- Replace Biome with prettier/eslint
+- Styles?
 
 ## Resources
 

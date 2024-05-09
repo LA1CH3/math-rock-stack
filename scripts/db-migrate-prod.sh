@@ -1,1 +1,1 @@
-pnpm run wrangler d1 migrations apply $DATABASE_NAME --remote
+pnpm exec wrangler d1 migrations apply $DATABASE_NAME --remote
