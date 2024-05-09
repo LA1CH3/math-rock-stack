@@ -12,7 +12,8 @@
     "check": "biome check app",
     "cf-typegen": "wrangler types",
     "db:migrate:create": "drizzle-kit generate:sqlite",
-    "db:migrate:apply": "dotenvx run -- sh scripts/db-migrate.sh",
+    "db:migrate:apply:local": "dotenvx run -- sh scripts/db-migrate.sh",
+    "db:migrate:apply:prod": "dotenvx run -- sh scripts/db-migrate-prod.sh",
     "db:studio:local": "LOCAL_DB_PATH=$(find .wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) drizzle-kit studio",
     "db:sync": "dotenvx run -- sh scripts/db-sync.sh",
     "wrangler": "wrangler"

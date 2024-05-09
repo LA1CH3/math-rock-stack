@@ -1,4 +1,3 @@
-import type { AppLoadContext } from "@remix-run/cloudflare";
 import type { PlatformProxy } from "wrangler";
 
 type Cloudflare = Omit<PlatformProxy<Env>, "dispose">;
