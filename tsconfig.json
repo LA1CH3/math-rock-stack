@@ -1,6 +1,10 @@
 {
   "extends": "@tsconfig/remix",
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./app/*"],
+      "db/*": ["db/*"]
+    }
   }
 }
