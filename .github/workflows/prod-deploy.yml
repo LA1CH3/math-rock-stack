@@ -34,16 +34,28 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-      
+
+      - name: Setup ESLint cache
+        uses: actions/cache@v3
+        with:
+          path: .eslintcache
+          key: |
+            ${{ runner.os }}-eslint-${{ hashFiles('.eslintrc.js') }}
+          restore-keys: |
+            ${{ runner.os }}-eslint-
+
       - name: Install dependencies
         run: pnpm install
-      
-      - name: Format/Lint
-        run: pnpm run check
-      
+
+      - name: Lint
+        run: pnpm run lint
+
+      - name: Format
+        run: pnpm run format:check
+
       - name: Build
         run: pnpm run build
-      
+
       - name: Apply migrations
         run: pnpm run db:migrate:apply:prod
         env:
