@@ -30,5 +30,5 @@ export default defineConfig(
               : "",
           dbName: DB_NAME,
         },
-      }
+      },
 );

@@ -34,7 +34,7 @@ export const authenticator = new Authenticator(sessionStorage).use(
       }
     }
   }),
-  "user-pass"
+  "user-pass",
 );
 
 export const login = async (username: string, password: string, db: AppDB) => {
