@@ -15,6 +15,13 @@
       "when": 1714962546142,
       "tag": "0001_optimal_randall_flagg",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1715547552704,
+      "tag": "0002_bouncy_justin_hammer",
+      "breakpoints": true
     }
   ]
 }

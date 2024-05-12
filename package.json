@@ -6,17 +6,18 @@
   "type": "module",
   "main": "build/client/index.js",
   "scripts": {
-    "dev": "remix vite:dev --open",
-    "build": "remix vite:build",
+    "dev": "dotenvx run -f .env.local -- remix vite:dev --open",
+    "build": "dotenv run -f .env.prod -- remix vite:build",
     "lint": "eslint . --cache",
     "format:check": "prettier . --check",
     "format:write": "prettier . --write",
     "cf-typegen": "wrangler types",
+    "db:update": "drizzle-kit up",
     "db:migrate:create": "drizzle-kit generate:sqlite",
-    "db:migrate:apply:local": "dotenvx run -- sh scripts/db-migrate.sh",
-    "db:migrate:apply:prod": "dotenvx run -- sh scripts/db-migrate-prod.sh",
+    "db:migrate:apply:local": "dotenvx run -f .env.local -- sh scripts/db-migrate.sh",
+    "db:migrate:apply:prod": "dotenvx run -- -f .env.prod sh scripts/db-migrate-prod.sh",
     "db:studio:local": "LOCAL_DB_PATH=$(find .wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) drizzle-kit studio",
-    "db:sync": "dotenvx run -- sh scripts/db-sync.sh"
+    "db:sync": "dotenvx run -f .env.local -- sh scripts/db-sync.sh"
   },
   "keywords": [],
   "author": "",
@@ -29,10 +30,11 @@
     "drizzle-orm": "^0.30.10",
     "isbot": "4",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "remix-auth": "^3.6.0",
+    "remix-auth-form": "^1.5.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.7.2",
     "@dotenvx/dotenvx": "^0.37.1",
     "@remix-run/dev": "^2.9.1",
     "@tsconfig/remix": "^2.0.5",
@@ -40,7 +42,7 @@
     "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@typescript-eslint/parser": "^7.8.0",
     "better-sqlite3": "^9.6.0",
-    "drizzle-kit": "^0.20.17",
+    "drizzle-kit": "^0.21.1",
     "eslint": "^8.47.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",
@@ -53,6 +55,6 @@
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
     "vite-tsconfig-paths": "^4.3.2",
-    "wrangler": "^3.53.1"
+    "wrangler": "^3.55.0"
   }
 }
