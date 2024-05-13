@@ -78,6 +78,9 @@ module.exports = {
         'plugin:import/typescript',
         'plugin:drizzle/recommended',
       ],
+      rules: {
+        'import/order': 'error',
+      },
     },
 
     // Node
