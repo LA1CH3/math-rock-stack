@@ -1,5 +1,5 @@
 import { AppDB } from '../db/utilities';
-import { pbkdf2Sync } from 'crypto';
+import { pbkdf2Sync } from 'node:crypto';
 
 export const login = async (username: string, password: string, db: AppDB) => {
   const user = await db.query.users.findFirst({

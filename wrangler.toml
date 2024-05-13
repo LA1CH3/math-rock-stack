@@ -3,6 +3,8 @@ name = "math-rock-stack"
 compatibility_date = "2024-05-02"
 pages_build_output_dir = "./build/client"
 
+compatibility_flags = [ "nodejs_compat" ]
+
 [vars]
 CLOUDFLARE_ACCOUNT_ID = "887644ede3080f7152aa22e9ecf52f0f"
 
