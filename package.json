@@ -6,18 +6,18 @@
   "type": "module",
   "main": "build/client/index.js",
   "scripts": {
-    "dev": "dotenvx run -f .env.local -- remix vite:dev --open",
-    "build": "dotenvx run -f .env.prod -- remix vite:build",
+    "dev": "remix vite:dev --open",
+    "build": "remix vite:build",
     "lint": "eslint . --cache",
     "format:check": "prettier . --check",
     "format:write": "prettier . --write",
     "cf-typegen": "wrangler types",
     "db:update": "drizzle-kit up",
     "db:migrate:create": "drizzle-kit generate",
-    "db:migrate:apply:local": "dotenvx run -f .env.local -- sh scripts/db-migrate.sh",
-    "db:migrate:apply:prod": "dotenvx run -f .env.prod -- sh scripts/db-migrate-prod.sh",
+    "db:migrate:apply:local": "dotenvx run -- sh scripts/db-migrate.sh",
+    "db:migrate:apply:prod": "dotenvx run -- sh scripts/db-migrate-prod.sh",
     "db:studio:local": "LOCAL_DB_PATH=$(find .wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) drizzle-kit studio",
-    "db:sync": "dotenvx run -f .env.local -- sh scripts/db-sync.sh"
+    "db:sync": "dotenvx run -- sh scripts/db-sync.sh"
   },
   "keywords": [],
   "author": "",

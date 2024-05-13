@@ -1,12 +1,9 @@
 import { type LoaderFunctionArgs, json } from '@remix-run/cloudflare';
 import { Links, Meta, Outlet, Scripts, useLoaderData } from '@remix-run/react';
 import { books } from 'db/schema';
-import { drizzle } from 'drizzle-orm/d1';
 
 export const loader = async ({ context }: LoaderFunctionArgs) => {
-  const db = drizzle(context.cloudflare.env.DB);
-
-  const allBooks = await db.select().from(books).all();
+  const allBooks = await context.db.select().from(books).all();
 
   return json({ books: allBooks });
 };
