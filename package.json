@@ -14,10 +14,10 @@
     "cf-typegen": "wrangler types",
     "db:update": "drizzle-kit up",
     "db:migrate:create": "drizzle-kit generate",
-    "db:migrate:apply:local": "dotenvx run -- sh scripts/db-migrate.sh",
-    "db:migrate:apply:prod": "dotenvx run -- sh scripts/db-migrate-prod.sh",
+    "db:migrate:apply:local": "dotenvx run -f .dev.vars -- sh scripts/db-migrate.sh",
+    "db:migrate:apply:prod": "dotenvx run -f .dev.vars -- sh scripts/db-migrate-prod.sh",
     "db:studio:local": "LOCAL_DB_PATH=$(find .wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) drizzle-kit studio",
-    "db:sync": "dotenvx run -- sh scripts/db-sync.sh"
+    "db:sync": "dotenvx run -f .dev.vars -- sh scripts/db-sync.sh"
   },
   "keywords": [],
   "author": "",
