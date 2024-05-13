@@ -7,5 +7,3 @@
  Due to that we don't generate migration automatically and it has to be done manually
 */--> statement-breakpoint
 ALTER TABLE users ADD `salt` text NOT NULL;--> statement-breakpoint
-CREATE UNIQUE INDEX `books_title_unique` ON `books` (`title`);--> statement-breakpoint
-CREATE UNIQUE INDEX `users_username_unique` ON `users` (`username`);

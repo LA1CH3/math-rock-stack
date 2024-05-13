@@ -1,8 +1,6 @@
 {
-  "version": "5",
+  "version": "6",
   "dialect": "sqlite",
-  "id": "a095d998-81d8-4b31-91d1-58d9856fa4a4",
-  "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "books": {
       "name": "books",
@@ -44,8 +42,9 @@
   },
   "enums": {},
   "_meta": {
-    "schemas": {},
     "tables": {},
     "columns": {}
-  }
+  },
+  "id": "a095d998-81d8-4b31-91d1-58d9856fa4a4",
+  "prevId": "00000000-0000-0000-0000-000000000000"
 }

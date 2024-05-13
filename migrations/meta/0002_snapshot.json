@@ -1,8 +1,6 @@
 {
-  "version": "5",
+  "version": "6",
   "dialect": "sqlite",
-  "id": "10dfad9b-8d29-48e3-96ce-16774c3aa5f4",
-  "prevId": "268c96e7-a7a4-4d92-9e2b-13fafcc44a40",
   "tables": {
     "books": {
       "name": "books",
@@ -97,8 +95,9 @@
   },
   "enums": {},
   "_meta": {
-    "schemas": {},
     "tables": {},
     "columns": {}
-  }
+  },
+  "id": "10dfad9b-8d29-48e3-96ce-16774c3aa5f4",
+  "prevId": "268c96e7-a7a4-4d92-9e2b-13fafcc44a40"
 }
