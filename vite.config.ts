@@ -4,7 +4,7 @@ import {
 } from '@remix-run/dev';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import { getLoadContext } from '~/load-context';
+import { getLoadContext } from './app/load-context';
 
 export default defineConfig({
   plugins: [

@@ -1,12 +1,16 @@
-import { getDB } from './services/db/utilities';
+import { DrizzleD1Database, drizzle } from 'drizzle-orm/d1';
+import * as schema from '../db/schema';
+
 import {
   AppLoadContext,
   createCookieSessionStorage,
 } from '@remix-run/cloudflare';
 import { Authenticator } from 'remix-auth';
 import { FormStrategy } from 'remix-auth-form';
-import { login } from './services/auth/session';
-import { Cloudflare } from './types/cloudflare';
+import { login } from './services/auth/login';
+import { PlatformProxy } from 'wrangler';
+
+export type Cloudflare = Omit<PlatformProxy<Env>, 'dispose'>;
 
 export interface WorkerEnv extends Env {
   SESSION_SECRET: string;
@@ -15,7 +19,7 @@ export interface WorkerEnv extends Env {
 declare module '@remix-run/cloudflare' {
   interface AppLoadContext {
     cloudflare: Cloudflare;
-    db: ReturnType<typeof getDB>;
+    db: DrizzleD1Database<typeof schema>;
     authenticator: Authenticator;
   }
 }
@@ -26,7 +30,7 @@ type GetLoadContext = (args: {
 }) => AppLoadContext;
 
 export const getLoadContext: GetLoadContext = ({ context }) => {
-  const db = getDB(context);
+  const db = drizzle(context.cloudflare.env.DB, { schema });
 
   const sessionStorage = createCookieSessionStorage({
     cookie: {
