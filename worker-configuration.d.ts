@@ -2,6 +2,6 @@
 // by running `wrangler types`
 
 interface Env {
-  CLOUDFLARE_ACCOUNT_ID: "887644ede3080f7152aa22e9ecf52f0f";
+  CLOUDFLARE_ACCOUNT_ID: '887644ede3080f7152aa22e9ecf52f0f';
   DB: D1Database;
 }
