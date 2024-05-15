@@ -1,13 +1,13 @@
 import { DrizzleD1Database, drizzle } from 'drizzle-orm/d1';
 import {
   AppLoadContext,
+  SessionStorage,
   createCookieSessionStorage,
 } from '@remix-run/cloudflare';
-import { Authenticator } from 'remix-auth';
-import { FormStrategy } from 'remix-auth-form';
+
 import { PlatformProxy } from 'wrangler';
 import * as schema from '../db/schema';
-import { login } from './services/auth/login';
+import { User } from './services/auth/login';
 
 export type Cloudflare = Omit<PlatformProxy<Env>, 'dispose'>;
 
@@ -17,7 +17,7 @@ declare module '@remix-run/cloudflare' {
   interface AppLoadContext {
     cloudflare: Cloudflare;
     db: AppDB;
-    authenticator: Authenticator;
+    session: SessionStorage<User>;
   }
 }
 
@@ -29,7 +29,7 @@ type GetLoadContext = (args: {
 export const getLoadContext: GetLoadContext = ({ context }) => {
   const db = drizzle(context.cloudflare.env.DB, { schema });
 
-  const sessionStorage = createCookieSessionStorage({
+  const session = createCookieSessionStorage({
     cookie: {
       name: '_session',
       sameSite: 'lax',
@@ -40,25 +40,9 @@ export const getLoadContext: GetLoadContext = ({ context }) => {
     },
   });
 
-  const authenticator = new Authenticator(sessionStorage).use(
-    new FormStrategy(async ({ form, context }) => {
-      if (context) {
-        const username = form.get('username')?.toString();
-        const password = form.get('password')?.toString();
-
-        if (username && password) {
-          const user = await login(username, password, db);
-
-          return user;
-        }
-      }
-    }),
-    'user-pass',
-  );
-
   return {
     ...context,
     db,
-    authenticator,
+    session,
   };
 };

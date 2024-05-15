@@ -1,26 +1,12 @@
 {
-  "version": "5",
+  "version": "6",
   "dialect": "sqlite",
   "entries": [
     {
       "idx": 0,
-      "version": "5",
-      "when": 1714958879476,
-      "tag": "0000_calm_mauler",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1714962546142,
-      "tag": "0001_optimal_randall_flagg",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1715547552704,
-      "tag": "0002_bouncy_justin_hammer",
+      "version": "6",
+      "when": 1715740412700,
+      "tag": "0000_broken_sumo",
       "breakpoints": true
     }
   ]
