@@ -11,7 +11,9 @@ export default defineConfig({
     remixCloudflareDevProxy({
       getLoadContext,
     }),
-    remix(),
+    remix({
+      ignoredRouteFiles: ['**/*.css'],
+    }),
     tsconfigPaths(),
   ],
 });

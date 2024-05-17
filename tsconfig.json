@@ -1,7 +1,9 @@
 {
   "extends": "@tsconfig/remix",
   "compilerOptions": {
+    "types": ["@remix-run/node", "@remix-run/cloudflare", "vite/client"],
     "baseUrl": ".",
+    "moduleResolution": "Bundler",
     "paths": {
       "~/*": ["./app/*"],
       "db/*": ["./db/*"]

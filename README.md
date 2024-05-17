@@ -17,3 +17,4 @@
 - https://remix.run/docs/en/main/guides/vite#cloudflare
 - https://kevinkipp.com/blog/going-full-stack-on-astro-with-cloudflare-d1-and-drizzle/
 - https://remix.run/docs/en/main/guides/vite#augmenting-load-context
+- https://remix.run/docs/en/main/utils/sessions

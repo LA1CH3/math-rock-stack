@@ -1,6 +1,17 @@
-import { type LoaderFunctionArgs, json } from '@remix-run/cloudflare';
+import {
+  type LoaderFunctionArgs,
+  json,
+  LinksFunction,
+} from '@remix-run/cloudflare';
 import { Links, Meta, Outlet, Scripts, useLoaderData } from '@remix-run/react';
+import tailwindStylesHref from './tailwind.css?url';
+
+import { Header } from './components/Header/Header';
 import { books } from 'db/schema';
+
+export const links: LinksFunction = () => [
+  { rel: 'stylesheet', href: tailwindStylesHref },
+];
 
 export const loader = async ({ request, context }: LoaderFunctionArgs) => {
   const allBooks = await context.db.select().from(books).all();
@@ -25,6 +36,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <Header />
         {currentUser ? <p>Welcome back, {currentUser}!</p> : null}
         <h2>This is a test</h2>
         <ul>
@@ -36,6 +48,7 @@ export default function App() {
           ))}
         </ul>
         <Outlet />
+
         <Scripts />
       </body>
     </html>
