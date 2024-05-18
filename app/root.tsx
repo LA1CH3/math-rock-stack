@@ -3,7 +3,7 @@ import {
   json,
   LinksFunction,
 } from '@remix-run/cloudflare';
-import { Links, Meta, Outlet, Scripts, useLoaderData } from '@remix-run/react';
+import { Links, Meta, Outlet, Scripts } from '@remix-run/react';
 import tailwindStylesHref from './tailwind.css?url';
 
 import { Header } from './components/Header/Header';
@@ -26,7 +26,7 @@ export const loader = async ({ request, context }: LoaderFunctionArgs) => {
 };
 
 export default function App() {
-  const { books, currentUser } = useLoaderData<typeof loader>();
+  // const { books, currentUser } = useLoaderData<typeof loader>();
 
   return (
     <html lang="en">
@@ -36,19 +36,12 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Header />
-        {currentUser ? <p>Welcome back, {currentUser}!</p> : null}
-        <h2>This is a test</h2>
-        <ul>
-          {books.map((book) => (
-            <li key={book.id}>
-              <h2>{book.title}</h2>
-              <p>{book.author}</p>
-            </li>
-          ))}
-        </ul>
-        <Outlet />
-
+        <div className="py-2 px-3">
+          <Header />
+          <main>
+            <Outlet />
+          </main>
+        </div>
         <Scripts />
       </body>
     </html>
