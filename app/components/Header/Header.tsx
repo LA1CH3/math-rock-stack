@@ -9,17 +9,22 @@ const navRoutes = [
 export function Header() {
   return (
     <header className="flex flex-col items-center sm:flex-row py-2 px-3">
-      <h1 className="uppercase text-xl sm:mr-auto">Math Rock Stack</h1>
+      <h1 className="uppercase text-xl sm:mr-auto">
+        <Link to="/" className="hover:underline underline-offset-2">
+          Math Rock Stack
+        </Link>
+      </h1>
       <nav>
-        <ul className="flex flex-col items-center justify-center sm:items-start sm:flex-row gap-1 sm:gap-4">
+        <ul className="flex pt-2 sm:pt-0 sm:items-start sm:flex-row gap-4 sm:gap-4">
           {navRoutes.map(({ to, label }) => (
-            <Link
-              key={to}
-              to={to}
-              className="uppercase hover:underline underline-offset-2"
-            >
-              {label}
-            </Link>
+            <li key={to}>
+              <Link
+                to={to}
+                className="uppercase hover:underline underline-offset-2"
+              >
+                {label}
+              </Link>
+            </li>
           ))}
         </ul>
       </nav>

@@ -16,7 +16,6 @@
     "db:migrate:create": "drizzle-kit generate",
     "db:migrate:apply:local": "dotenvx run -f .dev.vars -- sh scripts/db-migrate.sh",
     "db:migrate:apply:prod": "dotenvx run -f .dev.vars -- sh scripts/db-migrate-prod.sh",
-    "db:studio:local": "LOCAL_DB_PATH=$(find .wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) drizzle-kit studio",
     "db:sync": "dotenvx run -f .dev.vars -- sh scripts/db-sync.sh"
   },
   "keywords": [],
@@ -40,8 +39,7 @@
     "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@typescript-eslint/parser": "^7.8.0",
     "autoprefixer": "^10.4.19",
-    "better-sqlite3": "^9.6.0",
-    "drizzle-kit": "^0.21.1",
+    "drizzle-kit": "^0.21.2",
     "eslint": "^8.47.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",
@@ -56,6 +54,6 @@
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
     "vite-tsconfig-paths": "^4.3.2",
-    "wrangler": "^3.55.0"
+    "wrangler": "^3.57.0"
   }
 }

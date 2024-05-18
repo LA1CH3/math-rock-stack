@@ -1,5 +1,7 @@
 import { ActionFunctionArgs, json, redirect } from '@remix-run/cloudflare';
 import { Form, useActionData } from '@remix-run/react';
+import { Button } from '~/components/Button/Button';
+import { TextField } from '~/components/TextField/TextField';
 import { login } from '~/services/auth/login';
 
 export const action = async ({ request, context }: ActionFunctionArgs) => {
@@ -39,19 +41,14 @@ export default function AdminLogin() {
   const actionData = useActionData<typeof action>();
 
   return (
-    <>
+    <section className="flex flex-col items-center justify-center gap-4 w-full">
       {actionData?.error ? <p>{actionData.error}</p> : null}
-      <Form method="post">
-        <div>
-          <label htmlFor="username">Username</label>
-          <input type="text" name="username" required />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" required />
-        </div>
-        <button type="submit">Login</button>
+      <h2 className="text-6xl uppercase text-heading">Login</h2>
+      <Form className="flex flex-col gap-4" method="post">
+        <TextField label="Username" name="username" />
+        <TextField label="Password" name="password" type="password" />
+        <Button type="submit">Login</Button>
       </Form>
-    </>
+    </section>
   );
 }
