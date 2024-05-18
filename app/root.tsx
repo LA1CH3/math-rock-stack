@@ -35,13 +35,11 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
-        <div className="py-2 px-3">
-          <Header />
-          <main>
-            <Outlet />
-          </main>
-        </div>
+      <body className="flex flex-col min-h-screen">
+        <Header />
+        <main className="container mx-auto px-5 py-3 flex flex-1">
+          <Outlet />
+        </main>
         <Scripts />
       </body>
     </html>

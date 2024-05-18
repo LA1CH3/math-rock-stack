@@ -1,0 +1,5 @@
+.logo {
+  text-shadow:
+    5px -5px 0px theme('colors.indigo.50'),
+    10px -10px 0px theme('colors.indigo.700');
+}

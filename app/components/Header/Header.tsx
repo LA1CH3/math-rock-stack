@@ -8,7 +8,7 @@ const navRoutes = [
 
 export function Header() {
   return (
-    <header className="flex flex-col items-center sm:flex-row">
+    <header className="flex flex-col items-center sm:flex-row py-2 px-3">
       <h1 className="uppercase text-xl sm:mr-auto">Math Rock Stack</h1>
       <nav>
         <ul className="flex flex-col items-center justify-center sm:items-start sm:flex-row gap-1 sm:gap-4">
