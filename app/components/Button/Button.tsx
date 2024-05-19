@@ -11,7 +11,7 @@ export function Button({
   return (
     <button
       type={type}
-      className="border border-indigo-950 uppercase p-3 text-indigo-50 text-bold bg-indigo-900 hover:bg-indigo-800"
+      className="uppercase px-3 py-2 text-indigo-50 bg-black hover:bg-slate-800 text-bold button-shadow"
     >
       {children}
     </button>

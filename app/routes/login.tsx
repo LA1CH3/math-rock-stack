@@ -1,35 +1,55 @@
-import { ActionFunctionArgs, json, redirect } from '@remix-run/cloudflare';
-import { Form, useActionData } from '@remix-run/react';
+import {
+  ActionFunctionArgs,
+  LoaderFunctionArgs,
+  json,
+  redirect,
+} from '@remix-run/cloudflare';
+import { Form, useActionData, useLoaderData } from '@remix-run/react';
 import { Button } from '~/components/Button/Button';
 import { TextField } from '~/components/TextField/TextField';
 import { login } from '~/services/auth/login';
+import { getCurrentUser, getSession } from '~/services/auth/session';
+
+export const loader = async ({ context, request }: LoaderFunctionArgs) => {
+  const currentUser = await getCurrentUser(context, request);
+
+  return json({ currentUser });
+};
 
 export const action = async ({ request, context }: ActionFunctionArgs) => {
-  const session = await context.session.getSession(
-    request.headers.get('Cookie'),
-  );
+  const session = await getSession(context, request);
 
   const form = await request.formData();
-  const username = form.get('username')?.toString();
-  const password = form.get('password')?.toString();
+  const action = form.get('_action')?.toString();
 
-  if (username && password) {
-    const user = await login(username, password, context.db);
+  if (action === 'LOGOUT') {
+    return redirect('/', {
+      headers: {
+        'Set-Cookie': await context.session.destroySession(session),
+      },
+    });
+  } else if (action === 'LOGIN') {
+    const username = form.get('username')?.toString();
+    const password = form.get('password')?.toString();
 
-    if (user) {
-      session.set('id', user.id);
-      session.set('username', user.username);
+    if (username && password) {
+      const user = await login(username, password, context.db);
 
-      return redirect('/', {
-        headers: {
-          'Set-Cookie': await context.session.commitSession(session),
-        },
+      if (user) {
+        session.set('id', user.id);
+        session.set('username', user.username);
+
+        return redirect('/', {
+          headers: {
+            'Set-Cookie': await context.session.commitSession(session),
+          },
+        });
+      }
+
+      return json({
+        error: 'Invalid username or password',
       });
     }
-
-    return json({
-      error: 'Invalid username or password',
-    });
   }
 
   return json({
@@ -38,17 +58,33 @@ export const action = async ({ request, context }: ActionFunctionArgs) => {
 };
 
 export default function AdminLogin() {
+  const { currentUser } = useLoaderData<typeof loader>();
   const actionData = useActionData<typeof action>();
 
   return (
     <section className="flex flex-col items-center justify-center gap-4 w-full">
-      {actionData?.error ? <p>{actionData.error}</p> : null}
       <h2 className="text-6xl uppercase text-heading">Login</h2>
-      <Form className="flex flex-col gap-4" method="post">
-        <TextField label="Username" name="username" />
-        <TextField label="Password" name="password" type="password" />
-        <Button type="submit">Login</Button>
-      </Form>
+      {currentUser ? (
+        <div className="flex flex-col items-center gap-4">
+          <p>Looks like you are already logged in.</p>
+          <Form method="post">
+            <input type="hidden" name="_action" value="LOGOUT" />
+            <Button type="submit">Logout</Button>
+          </Form>
+        </div>
+      ) : (
+        <>
+          {actionData?.error ? <p>{actionData.error}</p> : null}
+          <Form className="flex flex-col gap-6" method="post">
+            <div className="flex flex-col gap-4">
+              <input type="hidden" name="_action" value="LOGIN" />
+              <TextField label="Username" name="username" />
+              <TextField label="Password" name="password" type="password" />
+            </div>
+            <Button type="submit">Login</Button>
+          </Form>
+        </>
+      )}
     </section>
   );
 }

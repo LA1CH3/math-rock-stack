@@ -1,10 +1,3 @@
-import { LinksFunction } from '@remix-run/cloudflare';
-import indexStylesHref from '~/styles/index.css?url';
-
-export const links: LinksFunction = () => [
-  { rel: 'stylesheet', href: indexStylesHref },
-];
-
 export default function Index() {
   return (
     <div className="mt-auto ml-auto text-right">

@@ -2,8 +2,8 @@
 // by running `wrangler types`
 
 interface Env {
-	CLOUDFLARE_ACCOUNT_ID: "887644ede3080f7152aa22e9ecf52f0f";
-	SESSION_SECRET: string;
-	DATABASE_NAME: string;
-	DB: D1Database;
+  CLOUDFLARE_ACCOUNT_ID: '887644ede3080f7152aa22e9ecf52f0f';
+  SESSION_SECRET: string;
+  DATABASE_NAME: string;
+  DB: D1Database;
 }

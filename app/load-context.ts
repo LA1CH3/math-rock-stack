@@ -7,7 +7,7 @@ import {
 
 import { PlatformProxy } from 'wrangler';
 import * as schema from '../db/schema';
-import { User } from './services/auth/login';
+import { SessionUser } from './services/auth/session';
 
 export type Cloudflare = Omit<PlatformProxy<Env>, 'dispose'>;
 
@@ -17,7 +17,7 @@ declare module '@remix-run/cloudflare' {
   interface AppLoadContext {
     cloudflare: Cloudflare;
     db: AppDB;
-    session: SessionStorage<User>;
+    session: SessionStorage<SessionUser>;
   }
 }
 

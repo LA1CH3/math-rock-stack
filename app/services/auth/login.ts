@@ -1,11 +1,6 @@
 import { pbkdf2Sync } from 'node:crypto';
 import { AppDB } from '../../load-context';
 
-export type User = {
-  id: number;
-  username: string;
-};
-
 export const login = async (username: string, password: string, db: AppDB) => {
   const user = await db.query.users.findFirst({
     where: (users, { eq }) => eq(users.username, username),
