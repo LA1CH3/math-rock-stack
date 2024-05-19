@@ -2,7 +2,8 @@ import { DrizzleD1Database, drizzle } from 'drizzle-orm/d1';
 import {
   AppLoadContext,
   SessionStorage,
-  createCookieSessionStorage,
+  createCookie,
+  createWorkersKVSessionStorage,
 } from '@remix-run/cloudflare';
 
 import { PlatformProxy } from 'wrangler';
@@ -29,15 +30,17 @@ type GetLoadContext = (args: {
 export const getLoadContext: GetLoadContext = ({ context }) => {
   const db = drizzle(context.cloudflare.env.DB, { schema });
 
-  const session = createCookieSessionStorage({
-    cookie: {
-      name: '_session',
-      sameSite: 'lax',
-      path: '/',
-      httpOnly: true,
-      secrets: [context.cloudflare.env.SESSION_SECRET],
-      secure: true,
-    },
+  const sessionCookie = createCookie('__session', {
+    sameSite: 'lax',
+    path: '/',
+    httpOnly: true,
+    secrets: [context.cloudflare.env.SESSION_SECRET],
+    secure: true,
+  });
+
+  const session = createWorkersKVSessionStorage({
+    kv: context.cloudflare.env.math_rock_stack_sessions,
+    cookie: sessionCookie,
   });
 
   return {
