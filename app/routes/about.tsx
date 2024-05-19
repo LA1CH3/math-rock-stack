@@ -3,7 +3,7 @@ import { Page } from '~/components/Page/Page';
 export default function About() {
   return (
     <Page heading="About">
-      <article className="prose">
+      <article className="prose prose-indigo">
         <p>
           MATH ROCK STACK is a simple yet powerful Remix stack pre-configured
           out of the box.
@@ -19,10 +19,8 @@ export default function About() {
           <li>Database: Cloudflare D1 (SQLite)</li>
           <li>ORM: Drizzle</li>
           <li>Styles: Tailwind</li>
-          <li>
-            Basic authentication using username/password and cookie-based
-            sessions
-          </li>
+          <li>Session storage: Cloudflare Workers KV</li>
+          <li>Basic authentication using username/password</li>
           <li>Deployment pipeline using GitHub Actions</li>
         </ul>
       </article>

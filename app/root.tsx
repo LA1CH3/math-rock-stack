@@ -6,6 +6,7 @@ import {
 } from '@remix-run/cloudflare';
 import { Links, Meta, Outlet, Scripts } from '@remix-run/react';
 import tailwindStylesHref from './tailwind.css?url';
+import rootStylesHref from './root.css?url';
 
 import { Header } from './components/Header/Header';
 import { books } from 'db/schema';
@@ -16,6 +17,7 @@ export const meta: MetaFunction = () => [
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: tailwindStylesHref },
+  { rel: 'stylesheet', href: rootStylesHref },
 ];
 
 export const loader = async ({ request, context }: LoaderFunctionArgs) => {
@@ -40,7 +42,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="flex flex-col min-h-screen">
+      <body className="flex flex-col min-h-screen root">
         <Header />
         <main className="container mx-auto px-5 py-3 flex flex-1">
           <Outlet />
