@@ -1,0 +1,1 @@
+ALTER TABLE `books` ADD `active` integer DEFAULT false NOT NULL;

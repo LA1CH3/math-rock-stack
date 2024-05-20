@@ -2,6 +2,7 @@ import { sqliteTable, text, integer } from 'drizzle-orm/sqlite-core';
 
 export const books = sqliteTable('books', {
   id: integer('id').primaryKey(),
+  active: integer('active', { mode: 'boolean' }).notNull().default(false),
   title: text('title').unique().notNull(),
   author: text('author').notNull(),
   description: text('description').notNull(),

@@ -1,3 +1,4 @@
+import { Link } from '~/components/Link/Link';
 import { Page } from '~/components/Page/Page';
 
 export default function About() {
@@ -23,6 +24,13 @@ export default function About() {
           <li>Basic authentication using username/password</li>
           <li>Deployment pipeline using GitHub Actions</li>
         </ul>
+        <p>
+          Visit{' '}
+          <Link external to="https://github.com/LA1CH3/math-rock-stack">
+            GitHub
+          </Link>{' '}
+          for more information and how to get started using the stack.
+        </p>
       </article>
     </Page>
   );

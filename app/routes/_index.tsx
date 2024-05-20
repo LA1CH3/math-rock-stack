@@ -7,7 +7,7 @@ export default function Index() {
         <div>Stack</div>
       </div>
       <div>
-        <p className="text-3xl">
+        <p className="text-2xl">
           A Remix stack built with Cloudflare Pages, D1, Drizzle, Tailwind and
           more.
         </p>
