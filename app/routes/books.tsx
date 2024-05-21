@@ -1,6 +1,7 @@
 import { LoaderFunctionArgs, json } from '@remix-run/cloudflare';
-import { Link, Outlet, useLoaderData } from '@remix-run/react';
+import { Outlet, useLoaderData } from '@remix-run/react';
 import { books } from 'db/schema';
+import { Link } from '~/components/Link/Link';
 import { SplitPage } from '~/components/SplitPage/SplitPage';
 
 export const loader = async ({ context }: LoaderFunctionArgs) => {
@@ -15,7 +16,7 @@ export default function Books() {
   return (
     <SplitPage heading="Books" outlet={<Outlet />}>
       {books.length ? (
-        <ul>
+        <ul className="list-disc list-inside">
           {books.map((book) => (
             <li key={book.id}>
               <Link to={`/books/${book.id}`}>{book.title}</Link>

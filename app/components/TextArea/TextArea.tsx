@@ -1,21 +1,20 @@
 interface Props {
   label: string;
   name: string;
-  type?: string;
   required?: boolean;
 }
 
-export function TextField({ label, name, required, type = 'text' }: Props) {
+export function TextArea({ label, name, required }: Props) {
   return (
     <div className="flex flex-col gap-1 max-w-sm">
       <label className="uppercase" htmlFor={name}>
         {label}
       </label>
-      <input
+      <textarea
         className="border border-indigo-950 p-1"
-        type={type}
         name={name}
         required={required}
+        rows={5}
       />
     </div>
   );

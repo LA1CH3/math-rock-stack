@@ -1,7 +1,8 @@
 ## Steps
 
 - Create cloudflare account
-- Create pages project, D1 database
+- Create pages project, D1 database, KV namespace
+- Update wrangler.toml with account ID, resource names and IDs
 - Create API token
 - Store token in Github actions secret
 - Store session secret in Cloudflare settings
@@ -10,7 +11,9 @@
 
 - Github action for preview environments on PR
 - Tests with Vitest?
-- Styles?
+- Document title on pages
+- CSP
+- 404 pages
 
 ## Resources
 

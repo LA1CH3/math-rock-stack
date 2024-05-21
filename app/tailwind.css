@@ -9,6 +9,12 @@
       10px -10px 0px theme('colors.indigo.700');
   }
 
+  .text-heading-sm {
+    text-shadow:
+      3px -3px 0px theme('colors.indigo.50'),
+      6px -6px 0px theme('colors.indigo.700');
+  }
+
   .button-shadow {
     box-shadow:
       4px -4px 0px theme('colors.indigo.50'),

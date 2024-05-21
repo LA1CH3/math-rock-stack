@@ -49,7 +49,9 @@ export default function BooksIndex() {
     <div className="flex flex-col items-center">
       <pre className="ascii-hero">{book}</pre>
       {currentUser ? (
-        <Link to="/books/new">Add a new book</Link>
+        <Link to="/books/new" button>
+          Add a new book
+        </Link>
       ) : (
         <p>Select a book on the left to learn more.</p>
       )}

@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "remix vite:dev --open",
     "build": "remix vite:build",
-    "lint": "eslint . --cache",
+    "lint": "eslint . --cache --cache-strategy content --cache-location .eslintcache",
     "format:check": "prettier . --check",
     "format:write": "prettier . --write",
     "cf-typegen": "wrangler types && prettier worker-configuration.d.ts --write",
@@ -29,7 +29,8 @@
     "drizzle-orm": "^0.30.10",
     "isbot": "4",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "tiny-invariant": "^1.3.3"
   },
   "devDependencies": {
     "@dotenvx/dotenvx": "^0.37.1",

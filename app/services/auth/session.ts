@@ -13,9 +13,7 @@ export async function getCurrentUser(
   context: AppLoadContext,
   request: Request,
 ) {
-  const session = await context.session.getSession(
-    request.headers.get('Cookie'),
-  );
+  const session = await getSession(context, request);
 
   const sessionUserId = session.get('id');
   const sessionUserName = session.get('username');
