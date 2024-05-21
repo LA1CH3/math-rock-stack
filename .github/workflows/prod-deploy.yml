@@ -40,7 +40,7 @@ jobs:
         with:
           path: .eslintcache
           key: |
-            ${{ runner.os }}-eslint-${{ hashFiles('**/.eslintrc.js') }}
+            ${{ runner.os }}-eslint-${{ hashFiles('**/.eslintrc.cjs') }}
 
       - name: Install dependencies
         run: pnpm install
